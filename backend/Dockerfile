@@ -1,6 +1,8 @@
 # dev stage
 FROM node:16-alpine as dev
 
+RUN apk add musl libgcc libstdc++ git curl wget bash ca-certificates gcompat openssh-client
+
 ENV NODE_ENV=development
 
 # setup workdir (next commands will run under this context, but also the running container will inherit this - if not overriden at runtime)
